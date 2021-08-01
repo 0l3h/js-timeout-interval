@@ -10,9 +10,9 @@ printNumbersInterval(1, 100, 10);
  * @param {Number} interval   Time interval in milliseconds beetween function calls. 
  */
 function printNumbersInterval(from, to, interval) {
-    let timerId = setInterval(() => {
+    const timerId = setInterval(() => {
         console.log(from++);
-        if(from === to) {
+        if(from > to) {
             clearInterval(timerId);
         }
     }, interval);
@@ -30,9 +30,9 @@ printNumbersTimeout(1, 100, 10);
 function printNumbersTimeout(from, to, interval) {
     console.log(from++);
     
-    let timerId = setTimeout(printNumbersTimeout, interval, from, to, interval);
+    const timerId = setTimeout(printNumbersTimeout, interval, from, to, interval);
     
-    if(from === to) {
+    if(from > to) {
         clearTimeout(timerId);
     }
 }
